@@ -52,9 +52,32 @@ public class CheckerTests
         Assert.Equal(expected, actual);
     }
 
-    //TestHook off
+    //TestHook default
     [Fact]
-    public void Test_GetValues_TestHook_Off()
+    public void Test_GetValues_TestHook_Default()
+    {
+        //Arrange
+        Checker checker = new Checker();
+        List<string> expected = new List<string> { "Even", "Odd" };
+
+        try
+        {
+            //Act
+            List<string> actual = checker.GetValues();
+            //assert fail
+            Assert.Equal(true, false);
+        }
+        catch (Exception x)
+        {
+            //assert pass
+            Assert.Equal("Test Hook is not enabled", x.Message);
+
+        }
+    }
+
+    //TestHook False
+    [Fact]
+    public void Test_GetValues_TestHook_False()
     {
         //Arrange
         Checker checker = new Checker(false);
