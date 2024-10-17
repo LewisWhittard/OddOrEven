@@ -52,7 +52,7 @@ public class CheckerTests
         Assert.Equal(expected, actual);
     }
 
-    //TestHook
+    //TestHook off
     [Fact]
     public void Test_GetValues_TestHook_Off()
     {
@@ -64,10 +64,12 @@ public class CheckerTests
         {
             //Act
             List<string> actual = checker.GetValues();
+            //assert fail
             Assert.Equal(true, false);
         }
         catch (Exception x)
         {
+            //assert pass
             Assert.Equal("Test Hook is not enabled", x.Message);
 
         }
